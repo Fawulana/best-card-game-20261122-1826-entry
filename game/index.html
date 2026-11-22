@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Court — A Duel of Suits</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="table" aria-label="Ember Court card table">
+  <header id="topbar">
+    <div id="brand">EMBER COURT</div>
+    <div id="match-info"><span id="duel-label">Duel 1</span> &middot; <span id="score-label">Duels won 0</span></div>
+    <button id="sound-toggle" type="button" title="Toggle sound (M)">♪ Sound: On</button>
+  </header>
+
+  <section id="foe-zone" aria-label="Opponent hand">
+    <div id="foe-portrait" class="portrait">
+      <div class="portrait-face">&#9819;</div>
+      <div class="portrait-name">Duchess Vex</div>
+      <div class="portrait-title">Rival of the Court</div>
+    </div>
+    <div id="foe-hand" class="hand"></div>
+    <div id="foe-stats" class="stats">
+      <div class="life"><span class="heart">&#10084;</span><span id="foe-life">30</span><span class="life-max">/ 30</span></div>
+      <div class="shield" id="foe-shield-wrap"><span class="shield-icon">&#11039;</span><span id="foe-shield">0</span> shield</div>
+      <div class="deck-count"><span id="foe-deck">31</span> cards in deck</div>
+    </div>
+  </section>
+
+  <section id="arena" aria-label="Play area">
+    <div id="foe-played" class="played-row"></div>
+    <div id="arena-center">
+      <div id="turn-banner">Your turn</div>
+      <div id="combo-banner" hidden></div>
+      <div id="arena-hint">Play a card, then end your turn</div>
+    </div>
+    <div id="my-played" class="played-row"></div>
+  </section>
+
+  <section id="my-zone" aria-label="Your hand">
+    <div id="my-stats" class="stats">
+      <div class="life"><span class="heart">&#10084;</span><span id="my-life">30</span><span class="life-max">/ 30</span></div>
+      <div class="shield" id="my-shield-wrap"><span class="shield-icon">&#11039;</span><span id="my-shield">0</span> shield</div>
+      <div class="mana"><span class="mana-gem">&#9670;</span><span id="my-mana">1</span><span class="mana-max">/ 1 mana</span></div>
+      <div class="deck-count"><span id="my-deck">31</span> cards in deck</div>
+    </div>
+    <div id="my-hand" class="hand"></div>
+    <div id="my-controls">
+      <button id="end-turn" type="button">End Turn <span class="key">Enter</span></button>
+      <button id="new-duel" type="button" hidden>Next Duel</button>
+    </div>
+  </section>
+
+  <aside id="log-panel" aria-label="Duel log">
+    <h2>Duel Log</h2>
+    <ol id="log"></ol>
+  </aside>
+
+  <div id="rules-strip">
+    <span><b>Ember &#128293;</b> damage</span><span><b>Tide &#128167;</b> heal</span>
+    <span><b>Thorn &#127807;</b> shield</span><span><b>Gale &#10022;</b> draw &amp; mana</span>
+    <span>Two of one suit in a turn: <b>Resonance +2</b></span>
+    <span>Keys <b>1&ndash;5</b> play &middot; <b>Enter</b> end turn &middot; <b>M</b> sound</span>
+  </div>
+
+  <div id="overlay" hidden>
+    <div id="overlay-card">
+      <div id="overlay-kicker"></div>
+      <h1 id="overlay-title"></h1>
+      <p id="overlay-text"></p>
+      <div id="overlay-score"></div>
+      <button id="overlay-button" type="button"></button>
+      <p id="overlay-hint">Click the button or press Enter to begin &middot; keys 1&ndash;5 play cards</p>
+    </div>
+  </div>
+</div>
+<p id="status" role="status" aria-live="polite"></p>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
